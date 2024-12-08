@@ -84,10 +84,10 @@ class BankReserves(mesa.Model):
             if isinstance(agent, Person):
                 if agent.savings > self.rich_threshold:
                     rich_count += 1
-                elif agent.savings > 10 and agent.savings <=50 and agent.loans <=10 :
-                    middle_count += 1
-                else:
+                elif agent.savings < 10:
                     poor_count += 1
+                else:
+                    middle_count += 1
 
         # Adatgyűjtés
         self.datacollector.collect(self)
